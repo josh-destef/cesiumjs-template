@@ -61,6 +61,14 @@ requirement — CesiumJS will not install on older versions.
    run `npm run dev` again.** That last step catches people out every time —
    Vite only reads `.env.local` when it starts.
 
+5. **Write your spec.** Answer the questions in
+   [spec/spec-template.md](spec/spec-template.md) — as prose, in your own
+   words — and save your answers as `spec/spec.md`. This is *your* job, not
+   your AI agent's: data sources, coordinate systems, and feature counts are
+   project decisions, and a spec written by the agent is the agent guessing at
+   your own requirements. Once `spec/spec.md` exists, hand it to your AI agent
+   (Claude Code, Cursor, or similar) and ask it to build your project from it.
+
 ---
 
 ## The core commands
@@ -172,7 +180,7 @@ handled for you, see the note above.
 | **[docs/gotchas.md](docs/gotchas.md)** | Something is broken, or before you commit to a dataset. Organised by symptom. **Start here.** |
 | [CesiumGS/cesiumjs-skills](https://github.com/CesiumGS/cesiumjs-skills) | Before writing any Cesium code. 14 API-domain skills covering the current API; the API changed in 1.107 and most tutorials are out of date. Add it with `claude plugin marketplace add CesiumGS/cesiumjs-skills`. |
 | [docs/rendering-decisions.md](docs/rendering-decisions.md) | Before rendering more than ~1,000 features. |
-| [spec/spec-template.md](spec/spec-template.md) | Writing the spec for your own project. |
+| [spec/spec-template.md](spec/spec-template.md) | Writing your own `spec/spec.md` before handing the project to an AI agent. |
 | [AGENTS.md](AGENTS.md) | What the AI agent reads on every turn. Short by design; `CLAUDE.md` just points at it. |
 
 ---

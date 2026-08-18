@@ -5,6 +5,19 @@ Stack is fixed: React 19 + TypeScript + Vite + CesiumJS + vite-plugin-cesium +
 
 Pinned: CesiumJS 1.144.0 · Node >= 22 · exact versions only, no `^` or `~`.
 
+## The spec comes from the user, not you
+
+The project spec lives at `spec/spec.md` and is written by the human, using
+`spec/spec-template.md` as the question list. It does not ship filled in —
+this template is blank on purpose.
+
+If `spec/spec.md` doesn't exist yet, don't invent one. Ask the user to write
+it (or answer the questions from `spec/spec-template.md` conversationally)
+before making decisions a spec should settle: data sources, CRS, altitude
+reference, expected feature count, licensing, camera start position. Guessing
+at these produces bugs that look like code bugs and are not — see the
+template's own explanation in `spec/spec-template.md`.
+
 ## Current CesiumJS API — the old synchronous forms were removed in 1.107
 
 ```ts
@@ -53,6 +66,11 @@ afterwards to confirm nothing broke.
 - Keep the accessible `DataTable` in sync with any new map layer.
 - Give every GeoJSON feature a top-level `"id"`.
 - Run `npm run build` before claiming a change works.
+- Don't guess at an API from memory — Cesium's, a data source's, or a
+  library's. Look it up: the `cesiumjs-skills` plugin for Cesium, the
+  package's own type definitions in `node_modules`, or a web search /
+  fetch of the actual docs or endpoint response for anything else.
+  Training data goes stale; a live source doesn't.
 
 ## Docs — read on demand
 
@@ -60,4 +78,4 @@ afterwards to confirm nothing broke.
 - `docs/rendering-decisions.md` — before rendering more than ~1,000 features.
 - `docs/gotchas.md` — heights, CRS, coordinate order, CORS, API keys, and
   everything that renders wrong or not at all. Organised by symptom.
-- `spec/spec-template.md` — the questions a project spec must answer.
+- `spec/spec-template.md` — the questions the user's `spec/spec.md` must answer.
