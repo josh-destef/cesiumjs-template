@@ -1,6 +1,7 @@
-// DO NOT EDIT — known-good configuration.
-// Changing this file is the most common cause of unrecoverable build failures.
-// If you think you need to change it, tell the user instead.
+// EDIT WITH CARE — this is known-good, tightly-coupled configuration.
+// Most "unrecoverable" build failures in a Cesium project trace back to a
+// change here. If the spec genuinely needs a change, read the three rules
+// below first, make the change, and re-run `npm run build`.
 
 /**
  * Globe.tsx
@@ -11,7 +12,7 @@
  * wants to re-render whenever state changes. Cesium wants to create one WebGL
  * canvas, keep it, and manage it itself for the lifetime of the page. This
  * component is the small, careful piece of code that lets them coexist, and it
- * is the most fragile file in the project. Hence DO NOT EDIT.
+ * is the most fragile file in the project. Edit it carefully.
  *
  * Notice what this component does NOT do: it knows nothing about national
  * parks, or GeoJSON, or any particular dataset. It creates a viewer, tells you

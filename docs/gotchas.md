@@ -84,7 +84,7 @@ ls dist/cesium        # should list Assets, Widgets, Workers, ThirdParty
 Empty or missing means `vite-plugin-cesium` did not run, and **almost always
 that `vite.config.ts` was edited**. Adding `vite-plugin-static-copy`, a manual
 `define` for `CESIUM_BASE_URL`, or copy targets *conflicts* with the plugin.
-That file is marked DO NOT EDIT because of this exact failure.
+That file is marked EDIT WITH CARE because of this exact failure.
 
 Run `npm run build && npm run preview` before every deploy. Twenty seconds here
 catches the whole class of bug that only appears in production.
@@ -226,7 +226,9 @@ CORS problem above disappears with it.
 ## Deprecation warnings, or a `TypeError` on a function you are sure exists
 
 CesiumJS removed its synchronous constructors in **1.107** and most tutorials
-predate that. Full table in **`docs/cesium-api-current.md`**.
+predate that. Use the **`cesiumjs-skills`** plugin (14 domain skills covering
+the current API — see the "Docs" section of `AGENTS.md`) instead of recalling
+it from memory.
 
 ```ts
 await createWorldTerrainAsync();            // not createWorldTerrain()

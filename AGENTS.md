@@ -21,16 +21,26 @@ viewer.scene.setTerrain(Cesium.Terrain.fromWorldTerrain());
 // Entity.id is READ-ONLY. Set a top-level "id" on the GeoJSON feature instead.
 ```
 
-Verify anything not listed here against `node_modules/cesium/Source/Cesium.d.ts`.
-Do not recall the Cesium API from memory — it changed, and most training data
-predates the change.
+That is a quick reference, not the source of truth. Before writing any Cesium
+call, use the **`cesiumjs-skills`** plugin (14 domain skills — viewer setup,
+camera, entities, 3D tiles, imagery, terrain, primitives, materials/shaders,
+time, spatial math, interaction, models/particles, core utilities — covering
+~551 symbols of the CesiumJS v1.144 API). If it isn't installed yet, run
+`claude plugin marketplace add CesiumGS/cesiumjs-skills` then install the
+`cesiumjs-skills` plugin. Failing that, verify against
+`node_modules/cesium/Source/Cesium.d.ts` directly. Do not recall the Cesium
+API from memory — it changed, and most training data predates the change.
 
-## Do not edit
+## Edit with care
 
 `vite.config.ts` · `src/cesium/createViewer.ts` · `src/components/Globe.tsx` ·
 `index.html`
 
-If a change seems to require editing one, stop and tell the user instead.
+These are known-good and tightly coupled — most "unrecoverable" build or
+blank-globe failures trace back to a change here. They are not off-limits:
+edit them when the spec genuinely requires it. Read the file's own header
+comment first, make the smallest change that works, and run `npm run build`
+afterwards to confirm nothing broke.
 
 ## Rules
 
@@ -46,7 +56,7 @@ If a change seems to require editing one, stop and tell the user instead.
 
 ## Docs — read on demand
 
-- `docs/cesium-api-current.md` — before writing any Cesium call.
+- `cesiumjs-skills` plugin (see above) — before writing any Cesium call.
 - `docs/rendering-decisions.md` — before rendering more than ~1,000 features.
 - `docs/gotchas.md` — heights, CRS, coordinate order, CORS, API keys, and
   everything that renders wrong or not at all. Organised by symptom.

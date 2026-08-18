@@ -125,7 +125,7 @@ the columns), `src/cesium/camera.ts` (where the map opens, and the keyboard
 controls), `src/styles.css`, `src/layers/tilesets.ts` (see below), and
 `public/data/`.
 
-Do not edit these four:
+Edit these four with care:
 
 ```
 vite.config.ts
@@ -134,10 +134,11 @@ src/components/Globe.tsx
 index.html
 ```
 
-Each carries a `DO NOT EDIT` header. They are where a small, reasonable-looking
-change produces a failure that looks like something else entirely — a blank
-globe, or a build that works locally and breaks in production. If you or an AI
-agent think one needs changing, that is worth a conversation first.
+Each carries an `EDIT WITH CARE` header. They are where a small,
+reasonable-looking change produces a failure that looks like something else
+entirely — a blank globe, or a build that works locally and breaks in
+production. They are not off-limits — read the file's header comment first,
+make the smallest change that works, and run `npm run build` afterwards.
 
 `src/cesium/createViewer.ts` carries one deliberate exception, commented where
 it happens: the geocoder is enabled (pointed at Google) whenever an ion token
@@ -169,7 +170,7 @@ handled for you, see the note above.
 | File | Read it when |
 | --- | --- |
 | **[docs/gotchas.md](docs/gotchas.md)** | Something is broken, or before you commit to a dataset. Organised by symptom. **Start here.** |
-| [docs/cesium-api-current.md](docs/cesium-api-current.md) | Before writing any Cesium code. The API changed in 1.107; most tutorials are out of date. |
+| [CesiumGS/cesiumjs-skills](https://github.com/CesiumGS/cesiumjs-skills) | Before writing any Cesium code. 14 API-domain skills covering the current API; the API changed in 1.107 and most tutorials are out of date. Add it with `claude plugin marketplace add CesiumGS/cesiumjs-skills`. |
 | [docs/rendering-decisions.md](docs/rendering-decisions.md) | Before rendering more than ~1,000 features. |
 | [spec/spec-template.md](spec/spec-template.md) | Writing the spec for your own project. |
 | [AGENTS.md](AGENTS.md) | What the AI agent reads on every turn. Short by design; `CLAUDE.md` just points at it. |

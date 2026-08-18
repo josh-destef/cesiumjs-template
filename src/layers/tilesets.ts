@@ -6,7 +6,8 @@
  * Tiles, Cesium OSM Buildings, or any other tileset in your ion account.
  * Copy the pattern below for a tileset not covered here; every one of these
  * factory functions is async and none of them use the removed synchronous
- * constructors — see docs/cesium-api-current.md before writing your own.
+ * constructors — check the `cesiumjs-skills` plugin (or
+ * node_modules/cesium/Source/Cesium.d.ts) before writing your own.
  *
  * Each helper follows the same shape on purpose: an `add...` function that
  * loads the tileset and puts it in the scene, and a matching `remove...`
@@ -52,8 +53,8 @@ import {
 //      else.
 //
 // `createGooglePhotorealistic3DTileset` is the one factory in the whole
-// Cesium API with NO "Async" suffix despite being asynchronous — see "traps
-// that are not in the changelog" in docs/cesium-api-current.md. It is still
+// Cesium API with NO "Async" suffix despite being asynchronous — a trap the
+// `cesiumjs-skills` plugin's 3d-tiles skill calls out explicitly. It is still
 // awaited like every other factory here.
 
 /**
@@ -63,8 +64,7 @@ import {
  * Terrain out for a flat ellipsoid. Google's mesh has its own real-world
  * ground geometry; leaving the globe's terrain surface active as well makes
  * both try to draw the same ground at once — z-fighting, which shows up as
- * flickering where the two surfaces fight over which is in front. See
- * docs/cesium-api-current.md.
+ * flickering where the two surfaces fight over which is in front.
  *
  * @throws If ion rejects the token for this asset, or the tileset otherwise
  *         fails to load — most often a token missing the asset above. Catch

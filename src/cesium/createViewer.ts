@@ -1,6 +1,8 @@
-// DO NOT EDIT — known-good configuration.
-// Changing this file is the most common cause of unrecoverable build failures.
-// If you think you need to change it, tell the user instead.
+// EDIT WITH CARE — this is known-good, tightly-coupled viewer configuration.
+// Most "unrecoverable" build/blank-globe failures in a Cesium project trace
+// back to a change here. If your spec genuinely needs something different,
+// go ahead — just read the rest of this file first, and run `npm run build`
+// afterwards.
 //
 // ONE DELIBERATE EXCEPTION: the `geocoder` option below is conditional rather
 // than a flat `false`, so that Google Photorealistic 3D Tiles (see
@@ -15,14 +17,16 @@
  * and its render loop. Everything else in this app is built on top of the
  * object this file returns.
  *
- * This file is marked DO NOT EDIT because getting viewer setup slightly wrong
- * produces failures that look like something else entirely: a black screen, a
- * globe with no imagery, or a crash on the second page load. If you want to
- * change how the globe looks or behaves, do it from your own code using the
- * returned viewer, not by editing this.
+ * Marked EDIT WITH CARE because getting viewer setup slightly wrong produces
+ * failures that look like something else entirely: a black screen, a globe
+ * with no imagery, or a crash on the second page load. Prefer changing how
+ * the globe looks or behaves from your own code using the returned viewer;
+ * change this file itself only when the behaviour has to come from here.
  *
  * VERIFIED AGAINST CesiumJS 1.144.0. Every API used here was checked against
- * the installed type definitions. See docs/cesium-api-current.md.
+ * the installed type definitions. See the `cesiumjs-skills` plugin (or
+ * `node_modules/cesium/Source/Cesium.d.ts` directly) before changing any
+ * Cesium call.
  */
 
 import {
@@ -157,7 +161,7 @@ export function createViewer(
     // With a token, we point it at Google specifically: Cesium's Google
     // Photorealistic 3D Tiles (src/layers/tilesets.ts) may ONLY be used
     // together with the Google geocoder — see createGooglePhotorealistic3DTileset
-    // in docs/cesium-api-current.md. Enabling it costs nothing for projects
+    // in the `cesiumjs-skills` plugin's 3d-tiles skill. Enabling it costs nothing for projects
     // that never call that helper, and it is a plain <input> + <button>, so
     // it stays keyboard reachable without extra work — unlike the widgets
     // disabled below, which are not.
@@ -296,9 +300,7 @@ export function createViewer(
   // -------------------------------------------------------------------------
   // This is genuinely useful while you are learning: open the browser console
   // and type `cesiumViewer.camera.positionCartographic` to see where you are,
-  // or `cesiumViewer.scene.globe.show = false` to hide the globe. The smoke
-  // test in tests/ uses the same handle to check the camera and count the
-  // loaded features.
+  // or `cesiumViewer.scene.globe.show = false` to hide the globe.
   //
   // There is nothing secret on this object — everything it exposes is already
   // running in the visitor's browser.

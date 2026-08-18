@@ -1,6 +1,7 @@
-// DO NOT EDIT — known-good configuration.
-// Changing this file is the most common cause of unrecoverable build failures.
-// If you think you need to change it, tell the user instead.
+// EDIT WITH CARE — this is known-good, tightly-coupled configuration.
+// Most "unrecoverable" build failures in a Cesium project trace back to a
+// change here. If the spec genuinely needs a change, read the rest of this
+// file first, and re-run `npm run build` afterwards.
 //
 // Why this file is so short:
 // CesiumJS is not a normal JavaScript library. It ships a large folder of
