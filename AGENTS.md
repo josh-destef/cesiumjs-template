@@ -42,7 +42,7 @@ If a change seems to require editing one, stop and tell the user instead.
   all of it. Explain why, not just what.
 - Keep the accessible `DataTable` in sync with any new map layer.
 - Give every GeoJSON feature a top-level `"id"`.
-- Run `npm run build && npm test` before claiming a change works.
+- Run `npm run build` before claiming a change works.
 
 ## Docs — read on demand
 

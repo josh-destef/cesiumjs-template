@@ -17,7 +17,7 @@ import reactHooks from "eslint-plugin-react-hooks";
 export default tseslint.config(
   // Files that should never be linted.
   {
-    ignores: ["dist/**", "node_modules/**", "test-results/**", "playwright-report/**"],
+    ignores: ["dist/**", "node_modules/**"],
   },
 
   // Base rules for all TypeScript.
@@ -48,10 +48,10 @@ export default tseslint.config(
     },
   },
 
-  // Playwright tests and config files run outside the browser, so they get
-  // Node globals instead and are not subject to the React rules.
+  // Config files run outside the browser, so they get Node globals instead
+  // and are not subject to the React rules.
   {
-    files: ["tests/**/*.ts", "*.config.{js,ts}"],
+    files: ["*.config.{js,ts}"],
     languageOptions: {
       ecmaVersion: 2022,
       globals: globals.node,

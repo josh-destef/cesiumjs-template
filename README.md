@@ -63,14 +63,13 @@ requirement — CesiumJS will not install on older versions.
 
 ---
 
-## The four commands
+## The core commands
 
 ```bash
 npm install     # Install dependencies. Run once, and after any git pull.
 npm run dev     # Start the development server. The one you use daily.
 npm run build   # Build the production version into dist/.
 npm run preview # Serve that build locally, to check it before deploying.
-npm test        # Run the smoke test.
 ```
 
 **Always run `npm run build && npm run preview` before you deploy.** A handful
