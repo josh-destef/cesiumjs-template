@@ -1,0 +1,976 @@
+{
+ "type": "FeatureCollection",
+ "name": "US National Parks (contiguous United States)",
+ "source": "National Park Service — public domain. Visitor counts are 2023 recreation visits (rounded).",
+ "features": [
+  {
+   "type": "Feature",
+   "id": "ACAD",
+   "properties": {
+    "name": "Acadia",
+    "code": "ACAD",
+    "state": "Maine",
+    "established": 1919,
+    "area_acres": 49076,
+    "visitors_2023": 3879890
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -68.2103,
+     44.3386
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "ARCH",
+   "properties": {
+    "name": "Arches",
+    "code": "ARCH",
+    "state": "Utah",
+    "established": 1971,
+    "area_acres": 76679,
+    "visitors_2023": 1482045
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.5698,
+     38.7331
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "BADL",
+   "properties": {
+    "name": "Badlands",
+    "code": "BADL",
+    "state": "South Dakota",
+    "established": 1978,
+    "area_acres": 242756,
+    "visitors_2023": 1006809
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -102.3397,
+     43.8554
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "BIBE",
+   "properties": {
+    "name": "Big Bend",
+    "code": "BIBE",
+    "state": "Texas",
+    "established": 1944,
+    "area_acres": 801163,
+    "visitors_2023": 509129
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -103.2502,
+     29.2498
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "BISC",
+   "properties": {
+    "name": "Biscayne",
+    "code": "BISC",
+    "state": "Florida",
+    "established": 1980,
+    "area_acres": 172971,
+    "visitors_2023": 1000000
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -80.0839,
+     25.49
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "BLCA",
+   "properties": {
+    "name": "Black Canyon of the Gunnison",
+    "code": "BLCA",
+    "state": "Colorado",
+    "established": 1999,
+    "area_acres": 30750,
+    "visitors_2023": 335862
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.7416,
+     38.5754
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "BRCA",
+   "properties": {
+    "name": "Bryce Canyon",
+    "code": "BRCA",
+    "state": "Utah",
+    "established": 1928,
+    "area_acres": 35835,
+    "visitors_2023": 2461269
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -112.1871,
+     37.593
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "CANY",
+   "properties": {
+    "name": "Canyonlands",
+    "code": "CANY",
+    "state": "Utah",
+    "established": 1964,
+    "area_acres": 337598,
+    "visitors_2023": 800322
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.9379,
+     38.3269
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "CARE",
+   "properties": {
+    "name": "Capitol Reef",
+    "code": "CARE",
+    "state": "Utah",
+    "established": 1971,
+    "area_acres": 241904,
+    "visitors_2023": 1274357
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -111.1735,
+     38.367
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "CAVE",
+   "properties": {
+    "name": "Carlsbad Caverns",
+    "code": "CAVE",
+    "state": "New Mexico",
+    "established": 1930,
+    "area_acres": 46766,
+    "visitors_2023": 394126
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -104.5567,
+     32.1479
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "CHIS",
+   "properties": {
+    "name": "Channel Islands",
+    "code": "CHIS",
+    "state": "California",
+    "established": 1980,
+    "area_acres": 249561,
+    "visitors_2023": 328746
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -119.421,
+     34.0069
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "CONG",
+   "properties": {
+    "name": "Congaree",
+    "code": "CONG",
+    "state": "South Carolina",
+    "established": 2003,
+    "area_acres": 26476,
+    "visitors_2023": 250114
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -80.7821,
+     33.7948
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "CRLA",
+   "properties": {
+    "name": "Crater Lake",
+    "code": "CRLA",
+    "state": "Oregon",
+    "established": 1902,
+    "area_acres": 183224,
+    "visitors_2023": 560291
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.1685,
+     42.9446
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "CUVA",
+   "properties": {
+    "name": "Cuyahoga Valley",
+    "code": "CUVA",
+    "state": "Ohio",
+    "established": 2000,
+    "area_acres": 32950,
+    "visitors_2023": 2860000
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -81.5712,
+     41.2808
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "DEVA",
+   "properties": {
+    "name": "Death Valley",
+    "code": "DEVA",
+    "state": "California",
+    "established": 1994,
+    "area_acres": 3408395,
+    "visitors_2023": 1104728
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -117.0794,
+     36.5054
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "DRTO",
+   "properties": {
+    "name": "Dry Tortugas",
+    "code": "DRTO",
+    "state": "Florida",
+    "established": 1992,
+    "area_acres": 64701,
+    "visitors_2023": 84285
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -82.8732,
+     24.6285
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "EVER",
+   "properties": {
+    "name": "Everglades",
+    "code": "EVER",
+    "state": "Florida",
+    "established": 1934,
+    "area_acres": 1508938,
+    "visitors_2023": 806732
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -80.9,
+     25.2866
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "JEFF",
+   "properties": {
+    "name": "Gateway Arch",
+    "code": "JEFF",
+    "state": "Missouri",
+    "established": 2018,
+    "area_acres": 192,
+    "visitors_2023": 2350000
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -90.1849,
+     38.6247
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "GLAC",
+   "properties": {
+    "name": "Glacier",
+    "code": "GLAC",
+    "state": "Montana",
+    "established": 1910,
+    "area_acres": 1013126,
+    "visitors_2023": 2933616
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -113.787,
+     48.7596
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "GRCA",
+   "properties": {
+    "name": "Grand Canyon",
+    "code": "GRCA",
+    "state": "Arizona",
+    "established": 1919,
+    "area_acres": 1201647,
+    "visitors_2023": 4733705
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -112.1401,
+     36.0544
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "GRTE",
+   "properties": {
+    "name": "Grand Teton",
+    "code": "GRTE",
+    "state": "Wyoming",
+    "established": 1929,
+    "area_acres": 310044,
+    "visitors_2023": 3417106
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -110.6818,
+     43.7904
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "GRBA",
+   "properties": {
+    "name": "Great Basin",
+    "code": "GRBA",
+    "state": "Nevada",
+    "established": 1986,
+    "area_acres": 77180,
+    "visitors_2023": 143265
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -114.2633,
+     38.9833
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "GRSA",
+   "properties": {
+    "name": "Great Sand Dunes",
+    "code": "GRSA",
+    "state": "Colorado",
+    "established": 2004,
+    "area_acres": 107346,
+    "visitors_2023": 493246
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -105.5943,
+     37.7916
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "GRSM",
+   "properties": {
+    "name": "Great Smoky Mountains",
+    "code": "GRSM",
+    "state": "Tennessee",
+    "established": 1934,
+    "area_acres": 522427,
+    "visitors_2023": 13297647
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -83.507,
+     35.6118
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "GUMO",
+   "properties": {
+    "name": "Guadalupe Mountains",
+    "code": "GUMO",
+    "state": "Texas",
+    "established": 1972,
+    "area_acres": 86367,
+    "visitors_2023": 231275
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -104.8607,
+     31.9231
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "HOSP",
+   "properties": {
+    "name": "Hot Springs",
+    "code": "HOSP",
+    "state": "Arkansas",
+    "established": 1921,
+    "area_acres": 5554,
+    "visitors_2023": 2500000
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -93.0524,
+     34.5217
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "INDU",
+   "properties": {
+    "name": "Indiana Dunes",
+    "code": "INDU",
+    "state": "Indiana",
+    "established": 2019,
+    "area_acres": 15349,
+    "visitors_2023": 2765892
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -87.0525,
+     41.6533
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "ISRO",
+   "properties": {
+    "name": "Isle Royale",
+    "code": "ISRO",
+    "state": "Michigan",
+    "established": 1940,
+    "area_acres": 571790,
+    "visitors_2023": 28965
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -88.555,
+     48.1
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "JOTR",
+   "properties": {
+    "name": "Joshua Tree",
+    "code": "JOTR",
+    "state": "California",
+    "established": 1994,
+    "area_acres": 795156,
+    "visitors_2023": 3270404
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -115.901,
+     33.8734
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "KICA",
+   "properties": {
+    "name": "Kings Canyon",
+    "code": "KICA",
+    "state": "California",
+    "established": 1940,
+    "area_acres": 461901,
+    "visitors_2023": 562918
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -118.5551,
+     36.8879
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "LAVO",
+   "properties": {
+    "name": "Lassen Volcanic",
+    "code": "LAVO",
+    "state": "California",
+    "established": 1916,
+    "area_acres": 106589,
+    "visitors_2023": 418978
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -121.508,
+     40.4977
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "MACA",
+   "properties": {
+    "name": "Mammoth Cave",
+    "code": "MACA",
+    "state": "Kentucky",
+    "established": 1941,
+    "area_acres": 54012,
+    "visitors_2023": 632862
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -86.1,
+     37.1862
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "MEVE",
+   "properties": {
+    "name": "Mesa Verde",
+    "code": "MEVE",
+    "state": "Colorado",
+    "established": 1906,
+    "area_acres": 52485,
+    "visitors_2023": 514986
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.4618,
+     37.2309
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "MORA",
+   "properties": {
+    "name": "Mount Rainier",
+    "code": "MORA",
+    "state": "Washington",
+    "established": 1899,
+    "area_acres": 236381,
+    "visitors_2023": 1634246
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -121.7269,
+     46.88
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "NERI",
+   "properties": {
+    "name": "New River Gorge",
+    "code": "NERI",
+    "state": "West Virginia",
+    "established": 2020,
+    "area_acres": 7021,
+    "visitors_2023": 1682720
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -81.0819,
+     37.9393
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "NOCA",
+   "properties": {
+    "name": "North Cascades",
+    "code": "NOCA",
+    "state": "Washington",
+    "established": 1968,
+    "area_acres": 504781,
+    "visitors_2023": 40351
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -121.2,
+     48.7718
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "OLYM",
+   "properties": {
+    "name": "Olympic",
+    "code": "OLYM",
+    "state": "Washington",
+    "established": 1938,
+    "area_acres": 922650,
+    "visitors_2023": 2947503
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -123.6044,
+     47.8021
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "PEFO",
+   "properties": {
+    "name": "Petrified Forest",
+    "code": "PEFO",
+    "state": "Arizona",
+    "established": 1962,
+    "area_acres": 221390,
+    "visitors_2023": 516789
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.7889,
+     35.0657
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "PINN",
+   "properties": {
+    "name": "Pinnacles",
+    "code": "PINN",
+    "state": "California",
+    "established": 2013,
+    "area_acres": 26686,
+    "visitors_2023": 275023
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -121.1682,
+     36.4906
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "REDW",
+   "properties": {
+    "name": "Redwood",
+    "code": "REDW",
+    "state": "California",
+    "established": 1968,
+    "area_acres": 138999,
+    "visitors_2023": 405843
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -124.0046,
+     41.2132
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "ROMO",
+   "properties": {
+    "name": "Rocky Mountain",
+    "code": "ROMO",
+    "state": "Colorado",
+    "established": 1915,
+    "area_acres": 265461,
+    "visitors_2023": 4115837
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -105.6836,
+     40.3428
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "SAGU",
+   "properties": {
+    "name": "Saguaro",
+    "code": "SAGU",
+    "state": "Arizona",
+    "established": 1994,
+    "area_acres": 92867,
+    "visitors_2023": 987048
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -110.5885,
+     32.2967
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "SEQU",
+   "properties": {
+    "name": "Sequoia",
+    "code": "SEQU",
+    "state": "California",
+    "established": 1890,
+    "area_acres": 404064,
+    "visitors_2023": 675000
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -118.5657,
+     36.4864
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "SHEN",
+   "properties": {
+    "name": "Shenandoah",
+    "code": "SHEN",
+    "state": "Virginia",
+    "established": 1935,
+    "area_acres": 199224,
+    "visitors_2023": 1573794
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -78.4679,
+     38.4755
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "THRO",
+   "properties": {
+    "name": "Theodore Roosevelt",
+    "code": "THRO",
+    "state": "North Dakota",
+    "established": 1978,
+    "area_acres": 70447,
+    "visitors_2023": 612493
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -103.4548,
+     46.979
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "VOYA",
+   "properties": {
+    "name": "Voyageurs",
+    "code": "VOYA",
+    "state": "Minnesota",
+    "established": 1975,
+    "area_acres": 218200,
+    "visitors_2023": 229810
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -92.8383,
+     48.4839
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "WHSA",
+   "properties": {
+    "name": "White Sands",
+    "code": "WHSA",
+    "state": "New Mexico",
+    "established": 2019,
+    "area_acres": 145762,
+    "visitors_2023": 729891
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -106.1717,
+     32.7797
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "WICA",
+   "properties": {
+    "name": "Wind Cave",
+    "code": "WICA",
+    "state": "South Dakota",
+    "established": 1903,
+    "area_acres": 33970,
+    "visitors_2023": 708267
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -103.4785,
+     43.5724
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "YELL",
+   "properties": {
+    "name": "Yellowstone",
+    "code": "YELL",
+    "state": "Wyoming",
+    "established": 1872,
+    "area_acres": 2219791,
+    "visitors_2023": 4501382
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -110.5885,
+     44.428
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "YOSE",
+   "properties": {
+    "name": "Yosemite",
+    "code": "YOSE",
+    "state": "California",
+    "established": 1890,
+    "area_acres": 761747,
+    "visitors_2023": 3897070
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -119.5383,
+     37.8651
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "ZION",
+   "properties": {
+    "name": "Zion",
+    "code": "ZION",
+    "state": "Utah",
+    "established": 1919,
+    "area_acres": 147242,
+    "visitors_2023": 4623238
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -113.0263,
+     37.2982
+    ]
+   }
+  }
+ ]
+}

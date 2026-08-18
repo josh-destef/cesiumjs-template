@@ -1,0 +1,576 @@
+/*
+ * styles.css
+ *
+ * All the styling for the app, in one plain CSS file.
+ *
+ * Plain CSS is a deliberate choice for this template. There is no build step
+ * to understand, no class-name conventions to learn, and you can read it top
+ * to bottom. Everything here is standard CSS that works in every browser.
+ *
+ * The file is organised as:
+ *   1. Design tokens (the colours and sizes everything else refers to)
+ *   2. Resets and base elements
+ *   3. Accessibility helpers
+ *   4. Layout
+ *   5. Panels and controls
+ *   6. The data table
+ *   7. Banners and error states
+ *   8. Responsive and motion preferences
+ */
+
+/* ==========================================================================
+   1. Design tokens
+   ========================================================================== */
+
+:root {
+  /* Colours. Defined once here so a change propagates everywhere. */
+  --color-surface: rgb(17 24 32 / 92%);
+  --color-surface-solid: #111820;
+  --color-border: rgb(255 255 255 / 14%);
+  --color-text: #f1f5f9;
+  --color-text-muted: #94a3b8;
+  --color-accent: #4ade80;
+  --color-accent-dark: #14532d;
+  --color-selected: #facc15;
+  --color-warning-bg: #422006;
+  --color-warning-border: #a16207;
+  --color-error-bg: #450a0a;
+  --color-error-border: #b91c1c;
+
+  /* Spacing. Sticking to a small set of sizes keeps the layout tidy. */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+
+  --radius: 8px;
+
+  /*
+   * The visible outline drawn around whatever has keyboard focus.
+   *
+   * This is the single most important accessibility rule in this file. Never
+   * write `outline: none` without putting an equally visible replacement in
+   * its place — doing so makes the app impossible to navigate by keyboard.
+   */
+  --focus-ring: 3px solid #60a5fa;
+}
+
+/* ==========================================================================
+   2. Resets and base elements
+   ========================================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  font-family:
+    system-ui,
+    -apple-system,
+    "Segoe UI",
+    Roboto,
+    sans-serif;
+  background: var(--color-surface-solid);
+  color: var(--color-text);
+  line-height: 1.5;
+}
+
+/*
+ * One focus style for everything, applied via :focus-visible.
+ *
+ * :focus-visible is the modern selector that shows a focus ring for keyboard
+ * users but not for mouse clicks — which is exactly the behaviour people
+ * wanted when they used to (wrongly) remove focus rings altogether.
+ */
+:focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Cesium's canvas gets the ring on plain :focus too, because it is reached by
+   keyboard but can also receive focus from a click on the globe. */
+.globe__canvas canvas:focus {
+  outline: var(--focus-ring);
+  outline-offset: -3px;
+}
+
+kbd {
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 0.85em;
+  background: rgb(255 255 255 / 10%);
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  padding: 0.1em 0.35em;
+}
+
+code {
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 0.9em;
+  background: rgb(255 255 255 / 10%);
+  border-radius: 4px;
+  padding: 0.1em 0.3em;
+}
+
+/* ==========================================================================
+   3. Accessibility helpers
+   ========================================================================== */
+
+/*
+ * Hides an element visually while keeping it available to screen readers.
+ *
+ * Used for the table caption. Do not replace this with `display: none` —
+ * that removes the element from the accessibility tree as well, which defeats
+ * the purpose.
+ */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+/*
+ * The skip link. Hidden off-screen until it receives keyboard focus, at which
+ * point it slides into view as the first thing a keyboard user reaches.
+ */
+.skip-link {
+  position: absolute;
+  top: var(--space-sm);
+  left: var(--space-sm);
+  z-index: 100;
+  transform: translateY(-200%);
+  background: var(--color-accent);
+  color: #052e16;
+  font-weight: 600;
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius);
+  text-decoration: none;
+  transition: transform 150ms ease;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+/* ==========================================================================
+   4. Layout
+   ========================================================================== */
+
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.app__header {
+  padding: var(--space-md) var(--space-lg);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.app__title {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.app__subtitle {
+  margin: var(--space-xs) 0 0;
+  color: var(--color-text-muted);
+  font-size: 0.875rem;
+}
+
+.app__main {
+  /*
+   * A fixed height rather than flex: 1.
+   *
+   * Cesium measures its container to size the canvas, and a container whose
+   * height depends on its contents resolves to zero — giving you a globe zero
+   * pixels tall. An explicit height avoids that entirely.
+   */
+  height: 70vh;
+  min-height: 420px;
+}
+
+.globe {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* The div Cesium fills with its canvas. */
+.globe__canvas {
+  position: absolute;
+  inset: 0;
+}
+
+/*
+ * The overlay layer sits above the canvas.
+ *
+ * pointer-events: none lets clicks fall through to the globe, and each panel
+ * inside turns pointer events back on for itself. Without this the whole
+ * overlay would swallow clicks meant for the map.
+ */
+.globe__overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-md);
+  padding: var(--space-md);
+  overflow: hidden;
+}
+
+/* ==========================================================================
+   5. Panels and controls
+   ========================================================================== */
+
+.panel {
+  pointer-events: auto;
+  background: var(--color-surface);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: var(--space-md);
+  max-width: 320px;
+  box-shadow: 0 4px 16px rgb(0 0 0 / 30%);
+}
+
+.panel__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-sm);
+}
+
+.panel__title {
+  margin: 0 0 var(--space-sm);
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.panel__close {
+  background: none;
+  border: none;
+  color: var(--color-text-muted);
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0 var(--space-xs);
+}
+
+.panel__close:hover {
+  color: var(--color-text);
+}
+
+.globe__hint {
+  margin: 0;
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+.button {
+  font: inherit;
+  font-size: 0.875rem;
+  background: rgb(255 255 255 / 10%);
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  padding: var(--space-xs) var(--space-sm);
+  cursor: pointer;
+  /*
+   * A minimum target size. The WCAG guideline is 24x24 CSS pixels; 32 gives
+   * a comfortable margin and still looks compact.
+   */
+  min-height: 32px;
+}
+
+.button:hover {
+  background: rgb(255 255 255 / 18%);
+}
+
+.button--inline {
+  margin-left: var(--space-sm);
+}
+
+.info-panel {
+  /* Keeps a long list of properties from pushing off the bottom of the map. */
+  max-height: calc(100% - 2 * var(--space-md));
+  overflow-y: auto;
+}
+
+.info-panel__empty {
+  margin: 0;
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+}
+
+.info-panel__list {
+  margin: 0;
+  display: grid;
+  gap: var(--space-sm);
+}
+
+.info-panel__row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-sm);
+  font-size: 0.875rem;
+}
+
+.info-panel__row dt {
+  color: var(--color-text-muted);
+}
+
+.info-panel__row dd {
+  margin: 0;
+  font-variant-numeric: tabular-nums;
+}
+
+.badge {
+  pointer-events: auto;
+  align-self: center;
+  margin: auto 0 0;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  padding: var(--space-xs) var(--space-md);
+  font-size: 0.875rem;
+}
+
+/* ==========================================================================
+   6. The data table
+   ========================================================================== */
+
+.data-table {
+  padding: var(--space-lg);
+  border-top: 1px solid var(--color-border);
+}
+
+.data-table h2 {
+  margin: 0 0 var(--space-xs);
+  font-size: 1.1rem;
+}
+
+.data-table__intro {
+  margin: 0 0 var(--space-md);
+  color: var(--color-text-muted);
+  font-size: 0.875rem;
+}
+
+.data-table__scroll {
+  overflow-x: auto;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+}
+
+.data-table table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+
+.data-table th,
+.data-table td {
+  text-align: left;
+  padding: var(--space-sm) var(--space-md);
+  border-bottom: 1px solid var(--color-border);
+  white-space: nowrap;
+}
+
+.data-table thead th {
+  position: sticky;
+  top: 0;
+  background: var(--color-surface-solid);
+  font-weight: 600;
+  padding: 0;
+}
+
+.data-table .numeric {
+  text-align: right;
+  /* Lines the digits up in columns so numbers are comparable at a glance. */
+  font-variant-numeric: tabular-nums;
+}
+
+/* Sort buttons fill their header cell so the whole cell is clickable. */
+.data-table__sort {
+  font: inherit;
+  font-weight: 600;
+  width: 100%;
+  background: none;
+  border: none;
+  color: var(--color-text);
+  cursor: pointer;
+  padding: var(--space-sm) var(--space-md);
+  text-align: inherit;
+}
+
+.data-table__sort:hover {
+  background: rgb(255 255 255 / 8%);
+}
+
+.data-table .numeric .data-table__sort {
+  text-align: right;
+}
+
+.data-table__select {
+  font: inherit;
+  background: none;
+  border: none;
+  color: var(--color-accent);
+  cursor: pointer;
+  padding: 0;
+  text-align: left;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.data-table tbody tr:hover {
+  background: rgb(255 255 255 / 5%);
+}
+
+.data-table tbody tr.is-selected {
+  background: rgb(250 204 21 / 14%);
+}
+
+/*
+ * A border on the selected row as well as a background colour.
+ *
+ * Colour alone is never enough to communicate state: it fails for people with
+ * colour blindness and in high-contrast modes. A second, non-colour signal is
+ * the fix.
+ */
+.data-table tbody tr.is-selected th[scope="row"] {
+  box-shadow: inset 3px 0 0 var(--color-selected);
+}
+
+/* ==========================================================================
+   7. Banners and error states
+   ========================================================================== */
+
+.banner {
+  padding: var(--space-sm) var(--space-lg);
+  font-size: 0.875rem;
+  border-bottom: 1px solid transparent;
+}
+
+.banner__list {
+  margin: var(--space-xs) 0 0;
+  padding-left: 1.25rem;
+}
+
+.banner__list li + li {
+  margin-top: var(--space-xs);
+}
+
+.banner--warning {
+  background: var(--color-warning-bg);
+  border-bottom-color: var(--color-warning-border);
+}
+
+.banner--error {
+  background: var(--color-error-bg);
+  border-bottom-color: var(--color-error-border);
+}
+
+.error-screen {
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: var(--space-lg);
+}
+
+.error-screen__details {
+  background: rgb(0 0 0 / 40%);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: var(--space-md);
+  overflow-x: auto;
+  font-size: 0.8125rem;
+  white-space: pre-wrap;
+}
+
+.error-screen__actions {
+  display: flex;
+  gap: var(--space-sm);
+  margin: var(--space-md) 0;
+}
+
+.error-screen__help {
+  color: var(--color-text-muted);
+  font-size: 0.875rem;
+}
+
+/* ==========================================================================
+   8. Responsive and motion preferences
+   ========================================================================== */
+
+@media (max-width: 640px) {
+  /*
+   * On a phone the overlay panels would cover most of the map, so they stack
+   * and shrink instead of sitting side by side.
+   */
+  .panel {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .globe__overlay {
+    gap: var(--space-sm);
+    padding: var(--space-sm);
+  }
+
+  .app__main {
+    height: 60vh;
+    min-height: 320px;
+  }
+}
+
+/*
+ * Respect a request for reduced motion.
+ *
+ * Camera flights are handled separately in src/cesium/camera.ts, because they
+ * are animated by JavaScript rather than CSS and this rule cannot reach them.
+ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/*
+ * Windows High Contrast Mode replaces the colour palette entirely. Explicit
+ * borders survive that replacement where background colours do not.
+ */
+@media (forced-colors: active) {
+  .panel,
+  .data-table__scroll {
+    border: 1px solid CanvasText;
+  }
+
+  .data-table tbody tr.is-selected {
+    forced-color-adjust: none;
+    outline: 2px solid Highlight;
+  }
+}

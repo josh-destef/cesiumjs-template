@@ -1,0 +1,34 @@
+<!doctype html>
+<!--
+  DO NOT EDIT — known-good configuration.
+  Changing this file is the most common cause of unrecoverable build failures.
+  If you think you need to change it, tell the user instead.
+
+  This file is deliberately almost empty. Two things are worth knowing:
+
+  1. vite-plugin-cesium injects a <script> tag for Cesium and a <link> for its
+     stylesheet into the built version of this file. You will not see them
+     here, but you will see them in dist/index.html after a build. That is
+     also why the JavaScript bundle looks small: Cesium is loaded separately
+     rather than bundled in.
+
+  2. The #root div is sized by src/styles.css, not here. Cesium measures its
+     container to size the 3D canvas, so a container with no height gives you
+     a globe zero pixels tall — which looks like a broken build but is really
+     a CSS problem.
+-->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CreateAccess 3D Map</title>
+    <meta
+      name="description"
+      content="A 3D geospatial web app built with CesiumJS."
+    />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
