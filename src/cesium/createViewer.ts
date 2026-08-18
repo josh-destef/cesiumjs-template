@@ -1,6 +1,12 @@
 // DO NOT EDIT — known-good configuration.
 // Changing this file is the most common cause of unrecoverable build failures.
 // If you think you need to change it, tell the user instead.
+//
+// ONE DELIBERATE EXCEPTION: the `geocoder` option below is conditional rather
+// than a flat `false`, so that Google Photorealistic 3D Tiles (see
+// src/layers/tilesets.ts) work out of the box. That is a one-line, considered
+// change, not an oversight — see the comment at that option before "fixing"
+// it back.
 
 /**
  * createViewer.ts
@@ -22,6 +28,7 @@
 import {
   EllipsoidTerrainProvider,
   Ion,
+  IonGeocodeProviderType,
   Viewer,
   Terrain,
   ImageryLayer,
@@ -144,7 +151,17 @@ export function createViewer(
 
     // --- UI we replace with our own accessible versions ---------------------
     baseLayerPicker: false, // needs a token to populate; not keyboard friendly
-    geocoder: false, // the search box is an ion-billed service
+    //
+    // The geocoder (search box) is off with no token — it is an ion-billed
+    // service, and this template does not otherwise need a place-search UI.
+    // With a token, we point it at Google specifically: Cesium's Google
+    // Photorealistic 3D Tiles (src/layers/tilesets.ts) may ONLY be used
+    // together with the Google geocoder — see createGooglePhotorealistic3DTileset
+    // in docs/cesium-api-current.md. Enabling it costs nothing for projects
+    // that never call that helper, and it is a plain <input> + <button>, so
+    // it stays keyboard reachable without extra work — unlike the widgets
+    // disabled below, which are not.
+    geocoder: usingIon ? IonGeocodeProviderType.GOOGLE : false,
     homeButton: false,
     sceneModePicker: false,
     navigationHelpButton: false,

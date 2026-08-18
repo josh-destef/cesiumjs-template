@@ -123,7 +123,8 @@ Edit freely: `src/layers/ExampleGeoJsonLayer.ts` (**start here** — the one
 example, replace it with your data), `src/App.tsx` (wires everything together),
 `src/components/InfoPanel.tsx`, `src/components/DataTable.tsx` (keep it; change
 the columns), `src/cesium/camera.ts` (where the map opens, and the keyboard
-controls), `src/styles.css`, and `public/data/`.
+controls), `src/styles.css`, `src/layers/tilesets.ts` (see below), and
+`public/data/`.
 
 Do not edit these four:
 
@@ -138,6 +139,29 @@ Each carries a `DO NOT EDIT` header. They are where a small, reasonable-looking
 change produces a failure that looks like something else entirely — a blank
 globe, or a build that works locally and breaks in production. If you or an AI
 agent think one needs changing, that is worth a conversation first.
+
+`src/cesium/createViewer.ts` carries one deliberate exception, commented where
+it happens: the geocoder is enabled (pointed at Google) whenever an ion token
+is present, because Google Photorealistic 3D Tiles below requires it. That is
+a considered one-line change baked into the template, not something to revert.
+
+---
+
+## Adding a 3D tileset
+
+`src/layers/tilesets.ts` has ready-made `add.../remove...` functions for the
+tilesets most projects reach for: Google Photorealistic 3D Tiles (a real
+textured mesh instead of flat imagery on a heightmap), Cesium OSM Buildings (a
+global 3D buildings layer), and any other asset in your ion account by id.
+None of them are wired in by default — import the one you want and call it
+once you have a viewer, the same place `ExampleGeoJsonLayer.ts`'s layer gets
+attached in `App.tsx`.
+
+Each needs its own asset enabled on your ion token — `assets:read` alone does
+not grant access to a specific asset. See `.env.example` and the comments in
+`src/layers/tilesets.ts` for the specifics, particularly for Google
+Photorealistic 3D Tiles, which also requires the Google geocoder — already
+handled for you, see the note above.
 
 ---
 
